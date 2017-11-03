@@ -1,6 +1,7 @@
 {
   "name": "hss-algorithms-js",
   "version": "0.1.0",
+  "license": "MIT",
   "dependencies": {
     "react": "^16.0.0",
     "react-dom": "^16.0.0",
@@ -8,11 +9,14 @@
   },
   "scripts": {
     "start": "react-scripts start",
+    "ava": "ava test/**/*.test.js",
+    "ava:watch": "ava test/**/*.test.js --watch",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
   },
   "devDependencies": {
+    "ava": "^0.23.0",
     "eslint": "^4.7.2",
     "eslint-config-airbnb": "^15.1.0",
     "eslint-config-prettier": "^2.6.0",
@@ -24,7 +28,7 @@
     "lint-staged": "^4.2.3",
     "prettier": "^1.7.0"
   },
-    "lint-staged": {
+  "lint-staged": {
     "*.js": [
       "eslint --fix",
       "git add"
