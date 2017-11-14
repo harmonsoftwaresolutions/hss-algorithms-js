@@ -21,10 +21,39 @@ test('BST constructor', t => {
 });
 
 test('BST insert', t => {
-  t.plan(2);
-  const bst = new BST(3);
-  bst.insert(7);
-  t.is(bst.getTree().left.key, 7, 'should set left child');
-  bst.insert(9);
-  t.is(bst.getTree().right.key, 9, 'should set right child');
+  t.plan(6);
+  const bst = new BST(50);
+  bst.insert(30);
+  t.is(bst.getTree().left.key, 30, 'should set left child');
+  bst.insert(20);
+  t.is(bst.getTree().left.left.key, 20, 'should set left, left child');
+  bst.insert(40);
+  t.is(bst.getTree().left.right.key, 40, 'should set left, right child');
+  bst.insert(70);
+  t.is(bst.getTree().right.key, 70, 'should set right child');
+  bst.insert(60);
+  t.is(bst.getTree().right.left.key, 60, 'should set right, left child');
+  bst.insert(80);
+  t.is(bst.getTree().right.right.key, 80, 'should set right, right child');
+});
+
+test('BST aux functions', t => {
+  t.plan(8);
+  const bst = new BST(50);
+  bst.insert(30);
+  t.is(bst.getTree().left.key, 30, 'should set left child');
+  bst.insert(20);
+  t.is(bst.getTree().left.left.key, 20, 'should set left, left child');
+  bst.insert(40);
+  t.is(bst.getTree().left.right.key, 40, 'should set left, right child');
+  bst.insert(70);
+  t.is(bst.getTree().right.key, 70, 'should set right child');
+  bst.insert(60);
+  t.is(bst.getTree().right.left.key, 60, 'should set right, left child');
+  bst.insert(80);
+  t.is(bst.getTree().right.right.key, 80, 'should set right, right child');
+  const size = bst.sizeOfTree();
+  t.is(size, 7, 'size of tree should be 7');
+  const height = bst.heightOfTree();
+  t.is(height, 3, 'height of tree should be 3');
 });
